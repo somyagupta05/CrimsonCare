@@ -3,11 +3,7 @@ const express = require("express");
 const app = express();
 
 // test routes
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "welcome to blood bank ",
-  });
-});
+app.use("/api/v1/test", require("./routes/testRoutes"));
 const PORT = 8080;
 
 app.listen(PORT, () => {

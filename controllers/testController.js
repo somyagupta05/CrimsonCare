@@ -1,6 +1,7 @@
-export const testController=(req,res)=>{
+const testController = (req, res) => {
   res.status(200).send({
-    message:"test route",
-    success:true,
-  })
-}
+    message: "test route",
+    success: true,
+  });
+};
+module.exports = { testController };
