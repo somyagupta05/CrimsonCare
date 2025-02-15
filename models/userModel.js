@@ -24,6 +24,15 @@ const userSchema = new mongoose.Schema({
       return false;
     },
   },
+  hospitalName:{
+    type:String,
+    required:function(){
+      if(this.role==='hospital'){
+        return true
+      }
+      return false
+    }
+  }
 
   email: {
     type: String,
@@ -45,4 +54,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "phone number is required"],
   },
-});
+},{timestamps:true});
+
+module.exports=mongoose.model('users',userSchema)
