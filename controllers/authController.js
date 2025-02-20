@@ -72,4 +72,7 @@ const loginContoller = async (req, res) => {
   }
 };
 
-module.exports = { registerController, loginContoller };
+// get current user
+const currentUserController = () => {};
+
+module.exports = { registerController, loginContoller, currentUserController };
