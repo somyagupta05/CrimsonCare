@@ -33,4 +33,7 @@ const registerController = async (req, res) => {
   }
 };
 
-module.exports = { registerController };
+// login callback
+const loginContoller = () => {};
+
+module.exports = { registerController, loginContoller };
