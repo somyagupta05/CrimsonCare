@@ -118,7 +118,7 @@ const getInventoryController = async (req, res) => {
 const getInventoryHospitalController = async (req, res) => {
   try {
     const inventory = await inventoryModel
-      .find(req.body.filters)
+      .find(req.body.filters || {})
       .populate("donar")
       .populate("hospital")
       .populate("organisation")
