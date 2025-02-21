@@ -1,5 +1,5 @@
 const express = require("express");
-const authMiddelware = require("../middlewares/authMiddlewares");
+const authMiddelware = require("../middlewares/authMiddleware");
 const {
   createInventoryController,
 } = require("../controllers/inventoryController");

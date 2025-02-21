@@ -1,34 +1,47 @@
 const inventoryModel = require("../models/inventoryModel");
 const userModel = require("../models/userModel");
-// create inventory
 
+// Create Inventory Controller
 const createInventoryController = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, inventoryType } = req.body;
+
+    // Find user by email
     const user = await userModel.findOne({ email });
     if (!user) {
-      return throw new Error("user not found");
+      return res
+        .status(400)
+        .json({ success: false, message: "User not found" });
     }
-    if (inventoryType == "in" && user.role !== "donar") {
-      return throw new Error("Not a donar account");
+
+    // Validate inventoryType and user role
+    if (inventoryType === "in" && user.role !== "donar") {
+      return res
+        .status(403)
+        .json({ success: false, message: "Not a donor account" });
     }
     if (inventoryType === "out" && user.role !== "hospital") {
-      return throw new ERROR("not a hospital");
+      return res
+        .status(403)
+        .json({ success: false, message: "Not a hospital" });
     }
-    // save record
+
+    // Save record
     const inventory = new inventoryModel(req.body);
     await inventory.save();
-    return res.status(201).send({
+
+    return res.status(201).json({
       success: true,
       message: "New Blood Record Added",
     });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({
+    console.error(error);
+    return res.status(500).json({
       success: false,
-      message: "Error in crete inventory api",
-      error,
+      message: "Error in create inventory API",
+      error: error.message,
     });
   }
 };
+
 module.exports = { createInventoryController };
