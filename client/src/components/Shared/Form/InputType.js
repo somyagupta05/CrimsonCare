@@ -1,5 +1,5 @@
 import React from "react";
-import InputType from "./InputType";
+// import InputType from "./InputType";
 
 const InputType = ({
   labelText,
