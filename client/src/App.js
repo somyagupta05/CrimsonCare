@@ -3,7 +3,7 @@
 function App() {
   return (
     <div>
-      <h1>
+      <h1 className="text-danger">
         Blood Bank Mangement System
         </h1>
      
