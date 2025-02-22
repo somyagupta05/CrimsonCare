@@ -2,6 +2,7 @@ import React from "react";
 import InputType from "./InputType";
 import { useState } from "react";
 
+
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +19,48 @@ const Form = ({ formType, submitBtn, formTitle }) => {
       <form>
         <h1 className="text-center">{formTitle}</h1>
         <hr />
+        <div className="d-flex mb-3">
+          <div className="form-check">
+            <input type="radio" className="form-check-input" name="role" 
+            id="donarRadio"
+            value={'donar'} onChange={(e)=>setRole(e.target.value)}
+            defaultChecked/>
+            <label htmlFor="donarRadio" className="form-check-label">
+              Donar
+            </label>
+          </div>
+
+          <div className="form-check ms-2">
+            <input type="radio" className="form-check-input" name="role" 
+            id="adminRadio"
+            value={'admin'} onChange={(e)=>setRole(e.target.value)}
+          />
+            <label htmlFor="donarRadio" className="form-check-label">
+              Admin
+            </label>
+          </div>
+
+
+          <div className="form-check ms-2">
+            <input type="radio" className="form-check-input" name="role" 
+            id="hospitalRadio"
+            value={'hospital'} onChange={(e)=>setRole(e.target.value)}
+        />
+            <label htmlFor="hospitalRadio" className="form-check-label">
+           Hospital
+            </label>
+          </div>
+
+          <div className="form-check ms-2">
+            <input type="radio" className="form-check-input" name="role" 
+            id="organisationRadio"
+            value={'organisation'} onChange={(e)=>setRole(e.target.value)}
+            />
+            <label htmlFor="organisationRadio" className="form-check-label">
+           Organisation
+            </label>
+          </div>
+        </div>
         {/* switch statement */}
         {/* eslint-disable-next-line */}
         {(() => {
