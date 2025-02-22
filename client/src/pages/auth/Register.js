@@ -8,7 +8,7 @@ const Register = () => {
       <img src="./assests/images/banner2.jpg" alt="registerImage"/>
       </div> 
       <div className="col-md-4 form-container">
-        <Form formTitle={'Register'} submitBtn={'Register'}/>
+        <Form formTitle={'Register'} submitBtn={'Register'} formType={'register'}/>
       </div>
    </div>
    </>

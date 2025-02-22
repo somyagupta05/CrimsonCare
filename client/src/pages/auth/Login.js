@@ -11,7 +11,7 @@ const Login = () => {
           <img src="./assests/images/banner1.jpg" />
         </div>
         <div className="col-md-4 form-container">
-          <Form formTitle={'Login Page'} submitBtn={'login'}/>
+          <Form formTitle={'Login Page'} submitBtn={'login'} formType={'login'}/>
         </div>
       </div>
     </>
