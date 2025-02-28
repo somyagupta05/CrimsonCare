@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import { userLogin } from './authAction';
 
 const initialState={
   loading:false,
@@ -10,7 +11,9 @@ const authSlice=createSlice({
   name:'auth',
   intialState:{},
   reducers:{},
-  extraReducers:{},
+  extraReducers:(builder)=>{
+    builder.addCase(userLogin)
+  },
 })
 
 export default authSlice
