@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../components/shared/Spinner";
-import Layout from "../components/shared/Layout/Layout";
-import Modal from "../components/shared/modal/Modal";
+import Spinner from "../components/Shared/Spinner";
+import Layout from "../components/Shared/Layout/Layout";
+import Modal from "../components/Shared/modal/Modal";
 import API from "../services/API";
 import moment from "moment";
+const socket = new WebSocket("ws://localhost:8080/ws");
 
 const HomePage = () => {
   const { loading, error, user } = useSelector((state) => state.auth);
